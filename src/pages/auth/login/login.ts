@@ -1,30 +1,43 @@
 import type { IUser } from "../../../types/IUser";
 import type { Rol } from "../../../types/Rol";
 import { navigate } from "../../../utils/navigate";
+import { saveUser } from "../../../utils/localStorage";
 
 const form = document.getElementById("form") as HTMLFormElement;
-const inputEmail = document.getElementById("email") as HTMLInputElement;
-//const inputPassword = document.getElementById("password") as HTMLInputElement;
-const selectRol = document.getElementById("rol") as HTMLSelectElement;
 
 form.addEventListener("submit", (e: SubmitEvent) => {
   e.preventDefault();
-  const valueEmail = inputEmail.value;
-  //const valuePassword = inputPassword.value;
-  const valueRol = selectRol.value as Rol;
+  const users: IUser[] = JSON.parse(localStorage.getItem("users") || "[]");
+  const formData = new FormData(form);
+  const valueEmail = formData.get("email") as string;
+  const valuePassword = formData.get("password") as string;
+  const valueRol = formData.get("rol") as Rol;
 
-  if (valueRol === "admin") {
-    navigate("/src/pages/admin/home/home.html");
-  } else if (valueRol === "client") {
-    navigate("/src/pages/client/home/home.html");
-  }
+  console.log("Valor del email:", valueEmail);
+  console.log("Valor de la contraseña:", valuePassword);
+  console.log("Valor del rol:", valueRol);
 
-  const user: IUser = {
+  console.log("Usuarios registrados:", users);
+  const userFound = users.find((user) => user.email === valueEmail.toLowerCase() && user.password === valuePassword && user.role === valueRol);
+  console.log("Usuario encontrado:", userFound);
+  const user_active: IUser = {
     email: valueEmail,
     role: valueRol,
     loggedIn: true,
   };
 
-  const parseUser = JSON.stringify(user);
-  localStorage.setItem("userData", parseUser);
+  if (!userFound) {
+    alert("Credenciales incorrectas. Por favor, inténtalo de nuevo.");
+    return;
+  }
+  else {
+    saveUser(user_active);
+    if (valueRol === "admin") {
+      navigate("/src/pages/admin/home/home.html");
+      }
+      else if (valueRol === "client") {
+        navigate("/src/pages/client/home/home.html");
+      }
+    }
+
 });
