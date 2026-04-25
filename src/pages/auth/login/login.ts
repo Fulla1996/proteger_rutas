@@ -3,7 +3,7 @@ import type { Rol } from "../../../types/Rol";
 import { navigate } from "../../../utils/navigate";
 import { initializeUsers, saveUser } from "../../../utils/localStorage";
 
-initializeUsers();
+initializeUsers(); //Se inicializa el admin
 const form = document.getElementById("form") as HTMLFormElement;
 
 form.addEventListener("submit", (e: SubmitEvent) => {

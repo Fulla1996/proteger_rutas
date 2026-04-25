@@ -2,7 +2,7 @@ import type { IUser } from "../../../types/IUser.ts";
 import { initializeUsers } from "../../../utils/localStorage.ts";
 import { navigate } from "../../../utils/navigate.ts";
 
-initializeUsers();
+initializeUsers(); //Se inicializa el admin
 
 const form = document.querySelector('form') as HTMLFormElement;
 localStorage.setItem('users', JSON.stringify([])); // Inicializamos el array de usuarios en localStorage
