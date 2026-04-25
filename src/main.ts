@@ -1,4 +1,5 @@
 import { checkAuhtUser } from "./utils/auth";
+import {initializeUsers} from "./utils/localStorage";
 
 function guard() {
     const path = window.location.pathname;
@@ -12,5 +13,5 @@ function guard() {
         }*/ //Se permite el acceso a los admins a las paginas de clientes ya que esta limitación no se encuentra en el problema.
     
 }
-
+initializeUsers(); //Se crea admin por defecto para facilitar las pruebas, si no existiera ya un admin creado.
 guard();

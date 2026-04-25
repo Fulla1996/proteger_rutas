@@ -11,11 +11,15 @@ export const removeUser = () => {
   localStorage.removeItem("userData");
 };
 
-const user: IUser = {
-  email: 'admin@admin.com',
-  password: 'admin',
-  loggedIn: false,
-  role: 'admin'
-};
+export const initializeUsers = () => {
+  if(localStorage.getItem('users') === '[]')  {
+  const user: IUser = {
+    email: 'admin@admin.com',
+    password: 'admin',
+    loggedIn: false,
+    role: 'admin'
+  };
 
-localStorage.setItem('users', JSON.stringify([user]));  //Se inicializa un admin por defecto para facilitar las pruebas
+  localStorage.setItem('users', JSON.stringify([user]));  //Se inicializa un admin por defecto para facilitar las pruebas
+  }
+};

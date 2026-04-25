@@ -1,8 +1,9 @@
 import type { IUser } from "../../../types/IUser";
 import type { Rol } from "../../../types/Rol";
 import { navigate } from "../../../utils/navigate";
-import { saveUser } from "../../../utils/localStorage";
+import { initializeUsers, saveUser } from "../../../utils/localStorage";
 
+initializeUsers();
 const form = document.getElementById("form") as HTMLFormElement;
 
 form.addEventListener("submit", (e: SubmitEvent) => {
