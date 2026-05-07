@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Store</title>
+    <link rel="stylesheet" href="../../../styles/global.css">
+    <link rel="stylesheet" href="../../../styles/client_home.css">
+</head>
+
+<body>
+<header>
+    <h1>Food Store</h1>
+    <nav>
+        <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Mis Pedidos</a></li>
+            <li><a href="../../../pages/store/cart/cart.html">Carrito</a></li>
+            <li class="admin"><a href="../../admin/home/home.html">Panel Admin</a></li>
+        </ul>
+</header>
+<hr>
+<aside>
+    <h2>Categorías</h2>
+    <ul id="categoryList">
+    </ul>
+</aside>
+<aside>
+    <button id="shoppingCartButton">
+        <img src="../../../assets/ShoppingCart.png" alt="Carrito de Compras">
+    </button>
+    <div id="shoppingCart" hidden>
+        <h3>Carrito de Compras</h3>
+        <ul id="cartItemsList"></ul>
+        <p>Total: $<span id="cartTotal">0.00</span></p>
+        <button id="checkoutButton">Finalizar Compra</button>
+        <button id="clearCartButton">Limpiar Carrito</button>
+    </div>
+</aside>
+<main>
+    <form action="">
+        <label for="inputSearchProduct">Buscar producto:</label>
+        <input type="text" id="inputSearchProduct" placeholder="Ej: Hamburguesa">
+        <button id="btnSearchProduct">Buscar</button>
+    </form>
+    
+    <h2>Productos Destacados</h2>
+    <section id="productsSection"></section>
+
+
+</main>
+<hr>
+<footer>
+    <p>&copy; 2024 Food Store. Todos los derechos reservados.</p>
+    <p>Contacto: <a href="mailto:info@foodstore.com">info@foodstore.com</a></p>
+</footer>
+</body>
+<script type="module" src="./home.ts"></script>
+</html>

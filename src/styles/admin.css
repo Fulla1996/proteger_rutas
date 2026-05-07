@@ -1,0 +1,40 @@
+*{
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--color-fondo);
+    padding: 20px;
+    max-width: 100vh;
+}
+
+h1, h2, h3{
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    text-align: left;
+    color: var(--color-primario);
+    margin-bottom: 0px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+table img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+}

@@ -5,8 +5,6 @@ import { navigate } from "../../../utils/navigate.ts";
 initializeUsers(); //Se inicializa el admin
 
 const form = document.querySelector('form') as HTMLFormElement;
-localStorage.setItem('users', JSON.stringify([])); // Inicializamos el array de usuarios en localStorage
-
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();

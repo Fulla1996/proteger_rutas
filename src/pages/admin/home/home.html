@@ -1,18 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Panel de Administración</title>
+    <link rel="stylesheet" href="../../../styles/global.css">
+    <link rel="stylesheet" href="../../../styles/admin.css">
     <script type="module" src="../../../main.ts"></script>
 </head>
-
 <body>
-    <h1>Hola desde la vista de admin</h1>
-    <button id="logoutButton">Logout</button>
-    <script type="module" src="./home.ts"></script>
-</body>
-
-
+    
+    <header>
+        <h1>Panel de Administración</h1>
+        <p><a href="../../store/home/home.html">Volver a la tienda</a></p>
+    </header>
+    <hr>
+    <main>
+        <h2>Gestión de Productos</h2>
+       
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Imagen</th>
+                    <th>Nombre</th>
+                    <th>Categoría</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="productTable">
+                
+            </tbody>
+        </table>
+        <hr>
+        <form action="">
+            <label for="inputProductoNombre">Nombre del producto:</label>
+            <input type="text" id="inputProductoNombre" placeholder="Ej: Pizza Margarita">
+            <label for="inputProductoPrecio">Categoría:</label>
+            <input type="number" id="inputProductoPrecio" placeholder="Ej: 10.00">
+            <label for="inputProductoStock">Stock:</label>
+            <input type="number" id="inputProductoStock" placeholder="Ej: 20">
+            <label for="textAreaProductoDes">Descripción:</label>
+            <textarea name="Descripción" id="textAreaProductoDes" placeholder="Ej: Una deliciosa pizza margarita con tomate y mozzarella."></textarea>
+            <label for="inputImagenProducto">Imagen del producto:</label>
+            <input type="file" id="inputImagenProducto" accept="image/*">
+            <button type="submit">Guardar Producto</button>
+        </form>
+        <footer>
+            <p>Panel de administración - Food Store v1.0</p>
+        </footer>
+    </body>
+    <script type="module" src="./admin.js"></script>
 </html>

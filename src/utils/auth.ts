@@ -17,8 +17,7 @@ export const checkAuhtUser = (
     return;
   } else {
 
-    const parseUser: IUser = JSON.parse(user);
-    if (parseUser.role !== rol) {
+    if (getUSer()!.role !== rol) {
       navigate(redireccion2);
       return;
     }

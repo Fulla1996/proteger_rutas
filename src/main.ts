@@ -6,7 +6,7 @@ function guard() {
 
     if (path.includes("/src/pages/admin")) 
         {
-            checkAuhtUser("/src/pages/auth/login/login.html", "/src/pages/client/home/home.html", "admin");
+            checkAuhtUser("/src/pages/auth/login/login.html", "/src/pages/store/home/home.html", "admin");
         }/*
         else if (path.includes("/src/pages/client")){
             checkAuhtUser("/src/pages/auth/login/login.html", "/src/pages/admin/home/home.html", "client");

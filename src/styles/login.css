@@ -1,0 +1,90 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--fuente-primaria), Arial, sans-serif;
+    background-color: var(--color-fondo);
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-container{
+    background-color: var(--color-blanco);
+    padding: 40px;
+    border-radius: 10px;
+    border: 1px solid var(--color-borde);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+h1, h2{
+    text-align: center;
+    font-family: var(--fuente-titulos);
+}
+
+h1{
+    text-transform: uppercase;
+    color: var(--color-primario);
+    margin-bottom: 0px;
+}
+
+h2{
+    color: var(--color-texto);
+    font-family: 'Arial', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+form{
+    margin-top: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+form label{
+    font-weight: bold;
+    align-self: flex-start;
+    color: var(--color-texto);
+    font-size: 14px;
+}
+
+form input, form select{
+    padding: 0.75em 0px 0.75em 10px;
+    width: 375px;
+    border: 1px solid var(--color-borde);
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+form input:focus{
+    border-color: var(--color-focus);
+    outline: none;
+}
+
+form button{
+    margin-top: 2em;
+    padding: 0.75em 0px 0.75em 0px;
+    width: 100%;
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+form button:hover{
+    background-color: var(--color-focus);
+}
