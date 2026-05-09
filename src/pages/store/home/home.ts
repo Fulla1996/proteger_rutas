@@ -1,17 +1,18 @@
 import {categorias, PRODUCTS} from '../../../data/data.ts';
 import { logout } from "../../../utils/auth.ts";
 import type { Product } from "../../../types/product.ts";
-import { shoppingCart, addToCart, getCart, getUSer, getCartFromStorage } from '../../../utils/localStorage.ts';
+import { addToCart, getUSer, getCartFromStorage } from '../../../utils/localStorage.ts';
 import { navigate } from '../../../utils/navigate.ts';
 
 getCartFromStorage(getUSer()!); // Cargar el carrito desde localStorage al iniciar la página
 
 
-const buttonLogout = document.getElementById(
-  "logoutButton"
-) as HTMLButtonElement;
-buttonLogout?.addEventListener("click", () => {
+const logoutLink = document.getElementById(
+  "logoutLink"
+) as HTMLAnchorElement;
+logoutLink?.addEventListener("click", () => {
   logout();
+  navigate('/src/pages/auth/login/login.html');
 });
 
 const searchButton = document.getElementById("btnSearchProduct") as HTMLButtonElement;
@@ -85,8 +86,15 @@ categoryLinks.forEach(link => {
     link.addEventListener('click', (e) => {
         e.preventDefault();
         const categoryName = link.textContent;
-        const filteredProducts = PRODUCTS.filter(product => product.categorias.some(cat => cat.nombre === categoryName));
-        cargarProductos(filteredProducts);
+        if (link.textContent === 'Todas') {
+            cargarProductos();
+            return;
+        }
+        else{
+            const filteredProducts = PRODUCTS.filter(product => product.categorias.some(cat => cat.nombre === categoryName));
+            cargarProductos(filteredProducts);
+        }
+            
     });
 });
 

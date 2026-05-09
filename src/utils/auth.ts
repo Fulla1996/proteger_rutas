@@ -1,4 +1,3 @@
-import type { IUser } from "../types/IUser";
 import type { Rol } from "../types/Rol";
 import { getUSer, removeUser } from "./localStorage";
 import { navigate } from "./navigate";

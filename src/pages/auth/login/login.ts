@@ -1,5 +1,4 @@
 import type { IUser } from "../../../types/IUser";
-import type { Rol } from "../../../types/Rol";
 import { navigate } from "../../../utils/navigate";
 import { initializeUsers, saveUser } from "../../../utils/localStorage";
 
