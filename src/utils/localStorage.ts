@@ -5,7 +5,6 @@ export const shoppingCart : Product[] = [];
 
 export const addToCart = (product: Product, currentUser?: IUser) => {
     shoppingCart.push(product);
-    console.log(shoppingCart);
     if (currentUser)
       localStorage.setItem(currentUser.email, JSON.stringify(shoppingCart));
 }
