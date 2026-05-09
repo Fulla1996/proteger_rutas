@@ -35,6 +35,7 @@ function addClickEventToProducts() {
 
       if (productoEncontrado && getUSer()) {
         addToCart(productoEncontrado, getUSer());
+        alert(`Producto "${productoEncontrado.nombre}" agregado al carrito.`);
         }
         
     });
@@ -56,19 +57,25 @@ function cargarProductos(listProducts: Product[] = PRODUCTS) {
     const productsSection = document.getElementById('productsSection');
     if (!productsSection) return;
     productsSection.innerHTML = ''; // Limpiar productos anteriores
-    listProducts.forEach(producto => {
-    const productCard = document.createElement('article');
-    productCard.classList.add('productCard');
-    productCard.setAttribute('data-product-id', producto.id.toString());
-    productCard.innerHTML = `
-        <img src="${producto.imagen}" alt="${producto.descripcion}">
-        <h3>${producto.nombre}</h3>
-        <p>${producto.descripcion}</p>
-        <p>Precio: $${producto.precio.toLocaleString()}</p>
-    `;
-    productsSection.appendChild(productCard);
-    });
-    addClickEventToProducts();
+    if (listProducts.length === 0) {
+        productsSection.innerHTML = '<p>No se encontraron productos.</p>';
+    }
+    else {
+        listProducts.forEach(producto => {
+        const productCard = document.createElement('article');
+        productCard.classList.add('productCard');
+        productCard.setAttribute('data-product-id', producto.id.toString());
+        productCard.innerHTML = `
+            <img src="${producto.imagen}" alt="${producto.descripcion}">
+            <h3>${producto.nombre}</h3>
+            <p>${producto.descripcion}</p>
+            <p>Precio: $${producto.precio.toLocaleString()}</p>
+        `;
+        productsSection.appendChild(productCard);
+        });
+        addClickEventToProducts();
+    }
+
 }
 
 
