@@ -6,6 +6,8 @@ import { navigate } from '../../../utils/navigate.ts';
 
 getCartFromStorage(getUSer()!); // Cargar el carrito desde localStorage al iniciar la página
 
+cargarCategorias();
+cargarProductos();
 
 const logoutLink = document.getElementById(
   "logoutLink"
@@ -30,12 +32,9 @@ function addClickEventToProducts() {
     productCards.forEach(card => {
     card.addEventListener('click', () => {
       const productoEncontrado = PRODUCTS.find(product => product.id.toString() === card.getAttribute('data-product-id'));
-      console.log(card.getAttribute('data-product-id'));
 
-      console.log('Producto encontrado:', productoEncontrado);
       if (productoEncontrado && getUSer()) {
         addToCart(productoEncontrado, getUSer());
-        console.log('Producto seleccionado: ' + card.querySelector('h3')?.textContent);
         }
         
     });
@@ -72,8 +71,6 @@ function cargarProductos(listProducts: Product[] = PRODUCTS) {
     addClickEventToProducts();
 }
 
-cargarCategorias();
-cargarProductos();
 
 const shoppingCartButton = document.getElementById('shoppingCartButton') as HTMLButtonElement;
 
